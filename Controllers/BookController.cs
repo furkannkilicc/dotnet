@@ -1,5 +1,8 @@
 using System;
 using System.Linq;
+using AutoMapper;
+using FluentValidation;
+using FluentValidation.Results;
 using HelloWebapi.BookOperations.CreateBook;
 using HelloWebapi.BookOperations.DeleteBook;
 using HelloWebapi.BookOperations.GetBookDetail;
@@ -22,11 +25,13 @@ namespace HelloWebapi.AddControllers
     {
         //priv -readonly ile sadece constructordan erişilip set ettik  uyg içinden değişemez sadece ctor içinde set edilebilir.
         private readonly BookStoreDbContext _context;
+        private readonly IMapper _mapper;
 
 
         //constructor ile dbcontext e erişiyoruz 
-        public BookController(BookStoreDbContext context)
+        public BookController(BookStoreDbContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
 
         }
@@ -59,7 +64,7 @@ namespace HelloWebapi.AddControllers
         [HttpGet]
         public IActionResult GetBooks()
         {
-            GetBooksQuery query = new GetBooksQuery(_context);
+            GetBooksQuery query = new GetBooksQuery(_context, _mapper   );
             var result = query.Handle();
             return Ok(result);
             //******** GetBooksQuery içinde Model yaparak değiştirdik ******
@@ -75,7 +80,9 @@ namespace HelloWebapi.AddControllers
             try
             {
                  GetBookDetailQuery query = new GetBookDetailQuery(_context);
+                 GetBookDetailValidator validator  = new GetBookDetailValidator();
             query.BookId = id;
+                 validator.ValidateAndThrow(query);
             result =  query.Handle();
             }
             catch (Exception ex )
@@ -113,11 +120,20 @@ namespace HelloWebapi.AddControllers
         public IActionResult AddBook([FromBody] CreateBookModel newBook)
         {
 
-            CreateBookCommand command = new CreateBookCommand(_context);
+            CreateBookCommand command = new CreateBookCommand(_context , _mapper);
             try
             {
                 command.Model = newBook;
-                command.Handle(); 
+                CreateBookCommandValidator validator = new CreateBookCommandValidator();
+               validator.ValidateAndThrow(command);
+               command.Handle(); 
+                // if(result.IsValid)
+                // foreach(var item in result.Errors)
+                // {
+                //     Console.WriteLine("özellik"+item.PropertyName+"-Hata mesajı"+item.ErrorMessage);
+                // }
+                // else
+                // 
             }
             catch (Exception ex)
             {
@@ -144,8 +160,10 @@ namespace HelloWebapi.AddControllers
            try
            {
                 UpdateBookCommand command = new UpdateBookCommand(_context);
+                UpdateBookCommandValidator validator = new UpdateBookCommandValidator();
             command.BookId = id;
             command.Model = updatedBook;
+                validator.ValidateAndThrow(command);
             command.Handle();
            }
            catch (Exception ex)
@@ -174,6 +192,8 @@ namespace HelloWebapi.AddControllers
                 {
                     DeleteBookCommand command = new DeleteBookCommand(_context);
                 command.BookId = id;
+                DeleteBookCommandValidator validator = new DeleteBookCommandValidator();
+                validator.ValidateAndThrow(command);
                 command.Handle();
                 }
                 catch (Exception ex)

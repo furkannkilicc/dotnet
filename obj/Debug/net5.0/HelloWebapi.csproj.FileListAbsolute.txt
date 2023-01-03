@@ -36,3 +36,6 @@ F:\NewDesktop\dotnet-patika\HelloWebapi\bin\Debug\net5.0\Microsoft.EntityFramewo
 F:\NewDesktop\dotnet-patika\HelloWebapi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
 F:\NewDesktop\dotnet-patika\HelloWebapi\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
 F:\NewDesktop\dotnet-patika\HelloWebapi\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+F:\NewDesktop\dotnet-patika\HelloWebapi\bin\Debug\net5.0\AutoMapper.dll
+F:\NewDesktop\dotnet-patika\HelloWebapi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+F:\NewDesktop\dotnet-patika\HelloWebapi\bin\Debug\net5.0\FluentValidation.dll
