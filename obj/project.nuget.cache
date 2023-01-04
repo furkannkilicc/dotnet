@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ARikUCEoDIpwNw24hN0dHHJlu796LVb2nq5017LsF/6Tt2Xa9GeKi3zoxRrAkdPeFObbHA3cN5ScfeIE+N3RAA==",
+  "dgSpecHash": "AMAaAXMGp00KWOAqH7ypES244n9pNAmfmE2l24pMqbBsQewSvk6N+Qlpm94VYa5OfXcoeIMtsP9nDV8auAnrzg==",
   "success": true,
   "projectFilePath": "F:\\NewDesktop\\dotnet-patika\\HelloWebapi\\HelloWebapi.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\Furkan\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\Furkan\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\Furkan\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Furkan\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\Furkan\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\Furkan\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "C:\\Users\\Furkan\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",

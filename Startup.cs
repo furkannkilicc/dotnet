@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using HelloWebapi.DBOperations;
+using HelloWebapi.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -54,6 +55,7 @@ namespace HelloWebapi
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCustomExceptionMiddle();
 
             app.UseEndpoints(endpoints =>
             {

@@ -121,8 +121,8 @@ namespace HelloWebapi.AddControllers
         {
 
             CreateBookCommand command = new CreateBookCommand(_context , _mapper);
-            try
-            {
+            // try
+            // {
                 command.Model = newBook;
                 CreateBookCommandValidator validator = new CreateBookCommandValidator();
                validator.ValidateAndThrow(command);
@@ -134,12 +134,12 @@ namespace HelloWebapi.AddControllers
                 // }
                 // else
                 // 
-            }
-            catch (Exception ex)
-            {
+            // }
+            // catch (Exception ex)   // try catch middleware içine taşıdık
+            // {
 
-                return BadRequest(ex.Message);
-            }
+                // return BadRequest(ex.Message);
+            // }
              
              return Ok();
 
